@@ -1,4 +1,4 @@
-// Function that mirrors the logic of the corrected R function
+
 function conjugateVerb(verbStem, subjectPronoun) {
     const subjectPrefixes = ["ni", "u", "a", "tu", "m", "wa"];
     const pronouns = ["I", "you (singular)", "he/she/it", "we", "you (plural)", "they"];
