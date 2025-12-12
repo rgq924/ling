@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swahili Verb Conjugator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Swahili Verb Conjugator</h1>
+        <p>Enter a regular Swahili verb stem (e.g., <strong>soma</strong>, <strong>imba</strong>, <strong>penda</strong>, <strong>enda</strong>).</p>
+        
+        <div class="controls">
+            <input type="text" id="verbStemInput" placeholder="Enter verb stem (e.g., soma)">
+            
+            <select id="subjectPronounSelect">
+                <option value="I">I</option>
+                <option value="you (singular)">you (singular)</option>
+                <option value="he/she/it">he/she/it</option>
+                <option value="we">we</option>
+                <option value="you (plural)">you (plural)</option>
+                <option value="they">they</option>
+            </select>
+            
+            <button onclick="displayConjugation()">Conjugate</button>
+        </div>
+
+        <div id="resultsArea">
+            <!-- Results will be injected here by JavaScript -->
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
