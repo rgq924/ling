@@ -11,7 +11,7 @@ function conjugateVerb(verbStem, subjectPronoun) {
     verbStem = verbStem.toLowerCase().trim();
 
     if (verbStem.length < 1) {
-        return "Invalid verb stem.";
+        return "Invalid verb.";
     }
 
     const index = pronouns.indexOf(subjectPronoun);
@@ -19,7 +19,7 @@ function conjugateVerb(verbStem, subjectPronoun) {
     if (index > -1) {
         const prefix = subjectPrefixes[index];
         
-        // Conjugation pattern: SubjectPrefix + TenseInfix + Stem + FinalVowel
+        // Conjugation pattern: SubjectPrefix + TenseInfix + Verb + FinalVowel
         const presentVerb = `${prefix}${presentInfix}${verbStem}${finalVowel}`;
         const pastVerb = `${prefix}${pastInfix}${verbStem}${finalVowel}`;
         const futureVerb = `${prefix}${futureInfix}${verbStem}${finalVowel}`;
@@ -40,6 +40,7 @@ function displayConjugation() {
     const pronoun = subjectPronounSelect.value;
 
     const conjugatedVerbs = conjugateVerb(stem, pronoun);
+    
 
     resultsArea.innerHTML = ''; // Clear previous results
 
@@ -50,10 +51,10 @@ function displayConjugation() {
         // Display the successful results
         resultsArea.innerHTML = `
             <div class="result-card">
-                <h3>Results for "${pronoun}" using stem "${stem}"</h3>
-                <p><strong>Present Tense:</strong> ${conjugatedVerbs.present}</p>
-                <p><strong>Past Tense:</strong> ${conjugatedVerbs.past}</p>
-                <p><strong>Future Tense:</strong> ${conjugatedVerbs.future}</p>
+                <h3>Results for "${pronoun}" using verb "${stem}"</h3>
+                <p><strong>Present Tense:</strong> <strong><span style="color: red;">${conjugatedVerbs.present}</span></strong></p>
+                <p><strong>Past Tense:</strong> <strong><span style="color: red;">${conjugatedVerbs.past}</span></strong></p>
+                <p><strong>Future Tense:</strong> <strong><span style="color: red;">${conjugatedVerbs.future}</span></strong></p>
             </div>
         `;
     }
