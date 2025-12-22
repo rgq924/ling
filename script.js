@@ -1,7 +1,7 @@
 
 function conjugateVerb(verbStem, subjectPronoun) {
     const subjectPrefixes = ["ni", "u", "a", "tu", "m", "wa"];
-    const pronouns = ["I", "you (singular)", "he/she/it", "we", "you (plural)", "they"];
+    const pronouns = ["I - Mimi", "you (singular) - Wewe", "he/she/it - Yeye", "we - Sisi", "you (plural) - Nyinyi", "they - Wao"];
     
     const presentInfix = "na";
     const pastInfix = "li";
@@ -35,12 +35,17 @@ function displayConjugation() {
     const verbStemInput = document.getElementById('verbStemInput');
     const subjectPronounSelect = document.getElementById('subjectPronounSelect');
     const resultsArea = document.getElementById('resultsArea');
+    
 
     const stem = verbStemInput.value;
     const pronoun = subjectPronounSelect.value;
-
-    const conjugatedVerbs = conjugateVerb(stem, pronoun);
+    //const match = pronoun.match(/-(.*)/);
     
+    const conjugatedVerbs = conjugateVerb(stem, pronoun);
+
+    //if(match && match[1]){
+    //    pronoun = match[1];
+    //}    
 
     resultsArea.innerHTML = ''; // Clear previous results
 
@@ -51,7 +56,8 @@ function displayConjugation() {
         // Display the successful results
         resultsArea.innerHTML = `
             <div class="result-card">
-                <h3>Results for "${pronoun}" using verb "${stem}"</h3>
+                <h3>Results for "<span style="color: red;">${pronoun.substring(pronoun.indexOf('-')+1).toLowerCase().trim()}</span>" using verb 
+                "<span style="color: red;">${stem}</span>"</h3>
                 <p><strong>Present Tense:</strong> <strong><span style="color: red;">${conjugatedVerbs.present}</span></strong></p>
                 <p><strong>Past Tense:</strong> <strong><span style="color: red;">${conjugatedVerbs.past}</span></strong></p>
                 <p><strong>Future Tense:</strong> <strong><span style="color: red;">${conjugatedVerbs.future}</span></strong></p>
